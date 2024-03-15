@@ -1,0 +1,29 @@
+<div class="bg-light">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if(CartProducts.length==0){
+          <span class="text-warning">no item in cart</span>
+        }
+        @for(oneproduct of CartProducts;track $index){
+          <tr>
+            <th scope="row">{{$index + 1}}</th>
+            <td>{{oneproduct.name}}</td>
+            <td>{{oneproduct.price}}</td>
+            <td>{{oneproduct.quantity}}</td>
+            <button (click)="REMOVEfromcart(oneproduct)">Delete</button>
+            <!-- //(click)="REMOVEfromcart(oneproduct)" -->
+          </tr>
+        }
+      </tbody>
+      <div>total: {{totalprice()}}</div>
+    </table>
+  </div>
+  
